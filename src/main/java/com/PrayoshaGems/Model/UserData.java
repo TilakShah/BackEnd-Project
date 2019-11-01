@@ -59,6 +59,25 @@ public class UserData {
 	private List <Order> order_Obj;
 	
 
+	private boolean enable;
+	private String authority;
+	
+	
+	
+	
+	
+	public boolean isEnable() {
+		return enable;
+	}
+	public void setEnable(boolean enable) {
+		this.enable = enable;
+	}
+	public String getAuthority() {
+		return authority;
+	}
+	public void setAuthority(String authority) {
+		this.authority = authority;
+	}
 	public List<Order> getOrder_Obj() {
 		return order_Obj;
 	}
