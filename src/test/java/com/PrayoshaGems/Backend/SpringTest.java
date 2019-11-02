@@ -10,6 +10,7 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -47,7 +48,8 @@ public class SpringTest
 			details.setUser_Name("Tilak");
 			details.setUser_Mail("TilakShah@gmail.com");
 			details.setUser_Mobile("9987265440");
-			details.setPassword("Pass@123");
+			details.setPassword(new  BCryptPasswordEncoder().encode("Pass@123"));
+			details.setEnable(true);
 			
 			Address a=new Address();
 			a.setPin_Code("400014");

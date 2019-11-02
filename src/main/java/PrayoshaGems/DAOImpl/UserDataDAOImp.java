@@ -10,6 +10,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.PrayoshaGems.DAO.UserDataDAO;
@@ -28,6 +29,9 @@ public class UserDataDAOImp implements UserDataDAO{
 	public boolean addUser(UserData user_Obj) {
 		// TODO Auto-generated method stub
 		
+		
+		user_Obj.setEnable(true);
+		user_Obj.setPassword(new BCryptPasswordEncoder().encode(user_Obj.getPassword()));
 	
 		sessionFactory.getCurrentSession().save(user_Obj);
 		

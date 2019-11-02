@@ -39,13 +39,16 @@ public class UserData {
 	private String user_Name;
 	@Pattern (regexp="^\\d{10}$",message="Mobile Number Invalid")
 	private String User_Mobile;
+
 	
+	private boolean enable;
+	private String authority;	
 	
 	//@Pattern(regexp="(^[A-Z0-9.%+-]+@[A-Z0-9.-]+\\.[a-z]{2,6}",message="Invalid Email")
 	private String User_Mail;
 	
 	
-	@Pattern (regexp="(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#_-]).{8,16}",message= "Password is Weak")
+	//@Pattern (regexp="(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@#_-]).{8,16}",message= "Password is Weak")
 	private String Password;
 	
 	
@@ -59,8 +62,7 @@ public class UserData {
 	private List <Order> order_Obj;
 	
 
-	private boolean enable;
-	private String authority;
+	
 	
 	
 	
