@@ -20,6 +20,7 @@ public class UserDetailsServerIMp implements UserDetailsService
 	  public org.springframework.security.core.userdetails.UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
     	UserData user=new UserData();
+    	System.out.println(username);
     	user.setUser_Name(username);
 	    UserData user1 =  userDAO.displayUserbyName(user);
 	    UserBuilder builder = null;

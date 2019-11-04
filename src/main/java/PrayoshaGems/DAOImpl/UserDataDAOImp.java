@@ -31,6 +31,7 @@ public class UserDataDAOImp implements UserDataDAO{
 		
 		
 		user_Obj.setEnable(true);
+		user_Obj.setAuthority("user");
 		user_Obj.setPassword(new BCryptPasswordEncoder().encode(user_Obj.getPassword()));
 	
 		sessionFactory.getCurrentSession().save(user_Obj);
@@ -106,12 +107,13 @@ public class UserDataDAOImp implements UserDataDAO{
 	public UserData displayUserbyName(UserData user_Obj) {
 		
 		try {
-			
-			Criteria Ctx=sessionFactory.getCurrentSession().createCriteria(UserData.class);
-		return (UserData)Ctx.add(Restrictions.eq("user_Name",user_Obj.getUser_Name())).list().get(0);
-		
-			
-			
+			System.out.println("SDFSDFSDFDFDF");
+			Query query=sessionFactory.getCurrentSession().createQuery("from com.PrayoshaGems.Model.UserData where user_Name = :user_Name");
+			System.out.println(user_Obj.getUser_Name());
+		 UserData user=(UserData)query.setParameter("user_Name",user_Obj.getUser_Name()).getResultList().get(0);
+		 System.out.println(user.getUser_Name());
+		 System.out.println(user.getUser_Mobile());
+		 return user;
 		} catch (Exception e) {
 			return null;
 		}
